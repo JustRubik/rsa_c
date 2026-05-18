@@ -56,6 +56,11 @@ $(BUILD_DIR)/%.o: src/%.c
 
 # UTILITIES
 
+.PHONY: all build run debug release test clean
+
+build: 
+	mkdir -p build
+
 run: all
 	./$(TARGET)
 
@@ -70,7 +75,5 @@ test:
 
 clean:
 	rm -rf build
-
-.PHONY: all run debug release test clean
 
 -include $(OBJ:.o=.d)
